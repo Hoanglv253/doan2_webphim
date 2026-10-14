@@ -1,0 +1,1407 @@
+/* 1. CẤU HÌNH CHUNG (Làm nền tối toàn trang) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    /* Màu nền đen xám (quan trọng) */
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 2. HEADER (Thanh menu trên cùng) */
+header {
+    background-color: #1c2029;
+    /* Màu nền header chuẩn */
+    height: 70px;
+    /* Chiều cao cố định */
+    display: flex;
+    /* Dàn hàng ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc (Chống lệch) */
+    justify-content: space-between;
+    /* Đẩy các phần tử ra 2 bên */
+    padding: 0 20px;
+    /* Khoảng cách 2 bên lề */
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* --- Bên trái: Menu & Logo --- */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Khoảng cách giữa icon menu và logo */
+}
+
+.menu-btn {
+    font-size: 24px;
+    color: #bbb;
+    cursor: pointer;
+    padding-top: 5px;
+    /* Chỉnh nhẹ để thẳng hàng với logo */
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    /* Chữ đậm */
+    color: #00aaff;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ff5500;
+}
+
+/* --- Ở giữa: Ô tìm kiếm --- */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    height: 40px;
+    border-radius: 4px;
+    /* Bo góc nhẹ */
+    overflow: hidden;
+    width: 450px;
+    /* Độ rộng ô tìm kiếm */
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 15px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-box button {
+    background-color: #444;
+    color: white;
+    border: none;
+    height: 100%;
+    padding: 0 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    /* Giữ chữ không bị xuống dòng */
+}
+
+.search-box button:hover {
+    background-color: #666;
+}
+
+/* --- Bên phải: Icon & Nút Login --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    /* Khoảng cách giữa các icon */
+}
+
+.icon-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+    font-size: 12px;
+    gap: 4px;
+}
+
+.icon-nav i {
+    font-size: 20px;
+    color: #00aaff;
+    margin-bottom: 2px;
+}
+
+.icon-nav:hover {
+    color: #fff;
+}
+
+.btn-login {
+    background-color: #00ccff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.btn-login:hover {
+    background-color: #00b3e3;
+}
+
+/* =========================================
+   CSS RIÊNG CHO TRANG ĐĂNG NHẬP (LOGIN PAGE)
+   ========================================= */
+
+/* 1. Bao quanh toàn bộ (Nền đen xám) */
+.login-wrapper {
+    background-color: #161618;
+    /* Màu nền đen tối giống hình */
+    min-height: calc(100vh - 70px);
+    /* Full màn hình trừ header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Để căn footer */
+    font-family: Arial, sans-serif;
+}
+
+/* 2. Hộp Login */
+.login-box {
+    background-color: #1f2023;
+    /* Màu xám của hộp form */
+    width: 420px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Header của form */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.login-header i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.login-header h2 {
+    display: inline;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Input (Màu trắng như hình) */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 45px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    /* Nền trắng */
+    color: #333;
+    font-size: 16px;
+}
+
+/* Checkbox & Quên mật khẩu */
+.options {
+    margin-bottom: 25px;
+}
+
+.checkbox-container {
+    color: #ddd;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    width: 16px;
+    height: 16px;
+}
+
+/* Nút bấm & Action */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.forgot-pass {
+    color: #ccc;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-pass:hover {
+    color: white;
+}
+
+.btn-submit {
+    background: transparent;
+    border: 1px solid #777;
+    /* Viền xám trắng */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    border-color: white;
+}
+
+/* Phần Đăng ký (Nút cam) */
+.register-section {
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.btn-register {
+    background-color: #ff5722;
+    /* CAM ĐẬM */
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+/* 3. Footer góc trái dưới (Logo + Tags) */
+.login-footer-info {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #00aaff;
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    color: #ff5500;
+}
+
+.footer-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #3e4147;
+    color: #ccc;
+    padding: 5px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.contact-text {
+    color: #666;
+    font-size: 12px;
+}
+
+.error-msg {
+    color: #ff4444;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* --- THÊM VÀO CUỐI FILE STYLE.CSS --- */
+
+/* Fix lỗi form đăng ký quá dài bị mất góc trên/dưới */
+.register-mode {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: auto;
+    /* Cho phép cuộn trang nếu form dài */
+    min-height: 100vh;
+}
+
+/* Tùy chỉnh nút Đăng ký màu Cam (Nếu bạn muốn nút Đăng ký nổi hơn nút Login) */
+/* Nếu thích màu viền trắng cũ thì KHÔNG CẦN thêm đoạn dưới này */
+.register-mode .btn-submit {
+    background-color: #ff5722;
+    border-color: #ff5722;
+    font-weight: 800;
+}
+
+.register-mode .btn-submit:hover {
+    background-color: transparent;
+    color: #ff5722;
+}
+
+
+
+/* --- CSS CHO SLIDER PHIM HOT --- */
+.hot-movie-container {
+    padding: 20px 40px;
+    /* Căn lề giống web phim */
+    background-color: #121212;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    color: #00aaff;
+    /* Màu xanh thương hiệu */
+    border-left: 4px solid #ff5500;
+    /* Gạch cam bên cạnh chữ */
+    padding-left: 10px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+/* Khung chứa các phim (Flexbox để nằm ngang) */
+.movie-slider {
+    display: flex;
+    gap: 20px;
+    /* Khoảng cách giữa các phim */
+    overflow-x: auto;
+    /* Cho phép cuộn ngang */
+    scroll-behavior: smooth;
+    /* Cuộn mượt */
+    padding-bottom: 10px;
+}
+
+/* Ẩn thanh cuộn xấu xí của trình duyệt */
+.movie-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.movie-slider::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.movie-slider::-webkit-scrollbar-track {
+    background: #111;
+}
+
+/* Thẻ Phim Hot (Cố định chiều rộng để không bị co giãn) */
+.movie-card-hot {
+    flex: 0 0 230px;
+    /* Chiều rộng cố định mỗi phim */
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.movie-card-hot:hover {
+    transform: scale(1.05);
+    /* Phóng to nhẹ khi di chuột */
+}
+
+/* Ảnh Poster */
+.poster-hot {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Chiều cao cố định */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.poster-hot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cắt ảnh vừa khung, không bị méo */
+}
+
+/* Badge số tập (Góc trên trái) */
+.badge-episode {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #ff5500, #ff8800);
+    /* Màu cam gradient */
+    font-weight: bold;
+}
+
+/* Tìm đoạn này trong style.css và sửa lại */
+.title-hot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 10px 10px 10px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 1px 1px 2px black;
+
+    z-index: 10;
+    /* THÊM DÒNG NÀY ĐỂ CHỮ NỔI LÊN TRÊN */
+}
+
+/* --- SỬA NÚT BẤM SLIDER (GIỐNG MẪU) --- */
+
+/* Khung bao để làm mốc toạ độ */
+.relative-wrapper {
+    position: relative;
+    /* Quan trọng để con nằm đè lên cha */
+    width: 100%;
+}
+
+/* Style chung cho 2 nút */
+.nav-btn {
+    position: absolute;
+    /* Để nút nằm lơ lửng */
+    top: 40%;
+    /* Căn giữa chiều dọc */
+    transform: translateY(-50%);
+    /* Cân chỉnh chính xác giữa tâm */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Làm nút tròn */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Màu trắng hơi trong suốt */
+    color: #000;
+    /* Mũi tên màu đen */
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    /* Đè lên trên ảnh phim */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Đổ bóng cho đẹp */
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hiệu ứng khi di chuột vào */
+.nav-btn:hover {
+    background-color: #00aaff;
+    /* Đổi màu xanh */
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    /* Phóng to nhẹ */
+}
+
+/* Vị trí cụ thể trái/phải */
+.nav-btn.prev {
+    left: 10px;
+    /* Cách lề trái 10px */
+}
+
+.nav-btn.next {
+    right: 10px;
+    /* Cách lề phải 10px */
+}
+
+/* --- ẨN THANH CUỘN (SCROLLBAR) --- */
+
+/* 1. Ẩn với Chrome, Safari, Opera, Cốc Cốc */
+.movie-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* 2. Ẩn với Firefox và IE/Edge */
+.movie-slider {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    /* Các thuộc tính cũ giữ nguyên */
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+}
+
+/* --- LAYOUT PHẦN THÂN (2 CỘT) --- */
+.main-body-container {
+    display: flex;
+    gap: 30px;
+    /* Khoảng cách giữa 2 cột */
+    padding: 20px 40px;
+    background-color: #121212;
+    align-items: flex-start;
+    /* Căn đỉnh trên cùng */
+}
+
+/* Cột trái (Chiếm 75%) */
+.left-content {
+    flex: 3;
+}
+
+/* Cột phải (Chiếm 25%) */
+.right-sidebar {
+    flex: 1;
+    background-color: #1c2029;
+    /* Nền tối cho sidebar */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* --- HEADER CỦA TỪNG MỤC --- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.cat-title {
+    color: #00aaff;
+    border-left: 4px solid #00aaff;
+    padding-left: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.cat-tags span {
+    background: #333;
+    color: #ccc;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.cat-tags span.active,
+.cat-tags span:hover {
+    background: #00aaff;
+    color: white;
+}
+
+/* --- LƯỚI PHIM (GRID) --- */
+.movie-grid-update {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Ghi đè class cũ để hiển thị tốt trong lưới grid (5 phim/hàng) */
+.movie-item-grid {
+    flex: 0 0 calc((100% - 80px) / 6) !important;
+    max-width: calc((100% - 80px) / 6) !important;
+    margin-bottom: 15px;
+}
+
+.ranking-board {
+    background-color: #1a1b21;
+    /* Nền tối nhẹ cho khung BXH */
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.rank-item {
+    display: flex;
+    /* Dàn hàng ngang */
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #333;
+    /* Đường gạch nét đứt ngăn cách */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.rank-item:last-child {
+    border-bottom: none;
+}
+
+.rank-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Sáng lên khi di chuột */
+}
+
+/* 1. CỘT SỐ HẠNG (BÊN TRÁI) */
+.rank-num {
+    width: 35px;
+    font-size: 24px;
+    font-weight: 900;
+    /* Chữ siêu đậm */
+    text-align: center;
+    margin-right: 15px;
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: #666;
+    /* Màu mặc định cho top 4 trở đi */
+}
+
+/* Gạch chân dưới số hạng (Giống hình mẫu) */
+.rank-num::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 3px;
+    background-color: #444;
+    border-radius: 2px;
+}
+
+/* MÀU SẮC RIÊNG CHO TOP 1, 2, 3 */
+/* Top 1: Đỏ */
+.rank-num.rank-1 {
+    color: #ff3333;
+}
+
+.rank-num.rank-1::after {
+    background-color: #ff3333;
+}
+
+/* Top 2: Xanh Dương (Hoặc Cam tùy ý) */
+.rank-num.rank-2 {
+    color: #00aaff;
+}
+
+.rank-num.rank-2::after {
+    background-color: #00aaff;
+}
+
+/* Top 3: Xanh Lá (Hoặc Vàng) */
+.rank-num.rank-3 {
+    color: #00ff88;
+}
+
+.rank-num.rank-3::after {
+    background-color: #00ff88;
+}
+
+
+/* 2. CỘT ẢNH THUMBNAIL (Ở GIỮA) */
+.rank-thumb {
+    width: 45px;
+    /* Chiều rộng ảnh nhỏ */
+    height: 60px;
+    /* Chiều cao ảnh nhỏ */
+    flex-shrink: 0;
+    /* Không bị co lại */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-right: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.rank-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cắt ảnh vừa khung */
+}
+
+
+/* 3. CỘT THÔNG TIN (BÊN PHẢI) */
+.rank-info {
+    flex-grow: 1;
+    /* Chiếm hết phần còn lại */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rank-title {
+    color: #eee;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    font-weight: 600;
+
+    /* Cắt chữ nếu tên quá dài (tối đa 2 dòng) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rank-item:hover .rank-title {
+    color: #00aaff;
+    /* Đổi màu tên phim khi di chuột */
+}
+
+.rank-meta {
+    color: #888;
+    font-size: 11px;
+    white-space: nowrap;
+    /* Không xuống dòng */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- PHÂN TRANG (PAGINATION) - BO TRÒN --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px;
+    /* Tăng khoảng cách ra một chút cho thoáng */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.pagination a {
+    /* Để làm hình tròn, cần dùng Flexbox để căn số vào chính giữa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Kích thước cố định để tạo thành hình tròn đều */
+    width: 40px;
+    height: 40px;
+
+    background-color: #222;
+    color: #fff;
+
+    /* QUAN TRỌNG: 50% là hình tròn, 99px là hình viên thuốc */
+    border-radius: 50%;
+
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #444;
+    transition: 0.3s;
+    padding: 0;
+    /* Bỏ padding cũ để không bị lệch */
+}
+
+.pagination a:hover {
+    background-color: #444;
+    border-color: #666;
+    transform: scale(1.1);
+    /* Hiệu ứng phóng to nhẹ khi di chuột */
+}
+
+/* Trang đang chọn (Màu xanh nổi bật) */
+.pagination a.active {
+    background-color: #12a7ec;
+    border-color: #11a8e9;
+    color: white;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(18, 167, 236, 0.5);
+    /* Thêm chút bóng sáng cho đẹp */
+}
+
+/* Style cho dấu 3 chấm */
+.pagination .dots {
+    display: inline-block;
+    padding: 0 5px;
+    color: #777;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* CSS Riêng cho trang tìm kiếm dạng Lưới */
+.search-container {
+    padding: 30px 40px;
+    min-height: 60vh;
+}
+
+.search-title {
+    color: #fff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.search-title span {
+    color: #00aaff;
+}
+
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Cho phép xuống dòng */
+    gap: 20px;
+}
+
+/* Tận dụng lại class movie-card-hot nhưng đè lại thuộc tính để không bị lỗi slider */
+.movie-item {
+    width: calc((100% - 100px) / 6);
+    /* Chia 5 cột */
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.movie-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 10px 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    text-align: center;
+}
+
+.movie-info h3 {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.movie-item:hover h3 {
+    color: #00aaff;
+}
+
+/* --- CSS CHO BOX THỂ LOẠI (GIỐNG ẢNH MẪU) --- */
+
+.genre-header-text {
+    color: #006aff;
+    /* Màu vàng tiêu đề */
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.genre-grid-box {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1a1a1a;
+    /* Nền tối của khung */
+    padding: 15px;
+    border-radius: 6px;
+    gap: 10px 20px;
+    /* Khoảng cách dọc 10px, ngang 20px */
+}
+
+.g-item {
+    width: calc(50% - 10px);
+    /* Chia đôi cột */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: 0.3s;
+}
+
+.g-item:hover {
+    transform: translateX(5px);
+    opacity: 0.8;
+}
+
+/* Định nghĩa màu sắc y hệt ảnh */
+.text-yellow {
+    color: #e6b800;
+}
+
+/* Huyền Huyễn, Xuyên Không */
+.text-red {
+    color: #ff4d4d;
+}
+
+/* Trùng Sinh */
+.text-purple {
+    color: #d24dff;
+}
+
+/* Tiên Hiệp */
+.text-cyan {
+    color: #99ffff;
+}
+
+/* Cổ Trang, Hài Hước */
+.text-green {
+    color: #4dff88;
+}
+
+/* Kiếm Hiệp, Hiện Đại */
+
+
+/* ======================================================
+   CHỈNH MÀU TIÊU ĐỀ: MỚI CẬP NHẬT - BXH - THỂ LOẠI
+   ====================================================== */
+
+/* 1. "Mới Cập Nhật" -> Màu Xanh Ngọc (Cyan) */
+/* Nó nằm ở cột bên trái (.left-content) */
+.left-content .cat-title {
+    color: #00ffd5 !important;
+    /* Màu xanh ngọc sáng */
+    border-left-color: #00ffd5 !important;
+    /* Đổi màu gạch dọc bên cạnh */
+    text-shadow: 0 0 15px rgba(0, 255, 213, 0.4);
+    /* Hiệu ứng phát sáng nhẹ */
+}
+
+/* 2. "Bảng Xếp Hạng" -> Màu Vàng (Yellow) */
+/* Nó là cái tiêu đề đầu tiên trong cột phải (.right-sidebar) */
+.right-sidebar .section-header:nth-of-type(1) h2,
+.right-sidebar .cat-title {
+    color: #ffcc00 !important;
+    /* Màu vàng */
+    border-left-color: #ffcc00 !important;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+/* 3. "Thể Loại" -> Nửa Xanh Nửa Vàng (Giống ảnh mẫu) */
+/* Đây là kỹ thuật Gradient Text để tô 2 màu trên 1 dòng chữ mà không cần sửa HTML */
+.genre-header-text,
+.right-sidebar .section-header:nth-of-type(2) h2 {
+    /* Tạo dải màu chuyển từ Xanh sang Vàng */
+    background: linear-gradient(90deg, #00ffd5 0%, #00ffd5 45%, #ffcc00 45%, #ffcc00 100%);
+
+    /* Cắt nền theo hình dáng chữ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* Tinh chỉnh lại hiển thị */
+    display: inline-block;
+    border-left: none !important;
+    /* Bỏ gạch dọc đi cho giống mẫu */
+    padding-left: 0 !important;
+    font-weight: 800 !important;
+    /* Chữ đậm hơn chút cho đẹp */
+    font-size: 22px !important;
+}
+
+/* ======================================================
+   CSS DETAIL PAGE (STYLE GIỐNG HÌNH MẪU 100%)
+   ====================================================== */
+
+/* 1. Backdrop nền mờ */
+.detail-backdrop {
+    position: relative;
+    width: 100%;
+    min-height: 650px;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.overlay-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Gradient đen che phủ để làm nổi chữ */
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 20%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.95) 80%);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+.detail-content {
+    position: relative;
+    z-index: 2;
+    width: 1200px;
+    max-width: 96%;
+    display: flex;
+    gap: 40px;
+}
+
+/* --- CỘT TRÁI: POSTER --- */
+.detail-left {
+    width: 260px;
+    flex-shrink: 0;
+}
+
+.poster-box {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+}
+
+.poster-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Nút Yêu Thích to màu xanh (Cyan) */
+.btn-fav-large {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #00ccff;
+    /* Màu xanh ngọc sáng */
+    color: white;
+    /* Chữ trắng */
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 204, 255, 0.3);
+    transition: 0.3s;
+}
+
+.btn-fav-large:hover {
+    background-color: #00b3e3;
+    transform: translateY(-2px);
+}
+
+.btn-fav-large i {
+    margin-right: 5px;
+}
+
+
+/* --- CỘT PHẢI: INFO --- */
+.detail-right {
+    flex: 1;
+    color: #fff;
+    padding-top: 10px;
+}
+
+.bread-crumb {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.bread-crumb a {
+    color: #ccc;
+}
+
+.bread-crumb span {
+    color: #999;
+}
+
+.d-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+/* Nút Xem Phim */
+.d-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-play {
+    padding: 10px 25px;
+    border-radius: 30px;
+    /* Bo tròn viên thuốc */
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-play:hover {
+    transform: scale(1.05);
+}
+
+.btn-play.blue {
+    background: linear-gradient(90deg, #0099ff, #0066ff);
+}
+
+.btn-play.cyan {
+    background: linear-gradient(90deg, #00e5ff, #00aabb);
+    color: #003344;
+}
+
+
+/* Lưới thông tin */
+.info-grid {
+    display: flex;
+    gap: 30px;
+}
+
+.info-desc {
+    flex: 1.6;
+}
+
+.info-meta-box {
+    flex: 1;
+}
+
+.warning-box {
+    background: rgba(255, 165, 0, 0.1);
+    color: #ffcc00;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.desc-text {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.view-more {
+    color: #00aaff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+
+/* Khung thông số bên phải (Glassmorphism) */
+.info-meta-box {
+    background: rgba(255, 255, 255, 0.08);
+    /* Nền mờ */
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-meta-box ul {
+    list-style: none;
+}
+
+.info-meta-box li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 13px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.info-meta-box li.wrap-li {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.meta-label {
+    color: #bbb;
+}
+
+.status-on {
+    color: #ccc;
+}
+
+.badge-ep {
+    background: #00aaff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.meta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag {
+    border: 1px solid #555;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #ccc;
+}
+
+.btn-comment-preview {
+    background: rgba(255, 255, 255, 0.15);
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* CSS Cắt dòng mô tả */
+.desc-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Số dòng muốn hiển thị (bạn muốn 2 dòng thì để số 2) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Nút Xem thêm */
+.toggle-desc-btn {
+    color: #00aaff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.toggle-desc-btn:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- Footer Replica Style (Giống hệt ảnh mẫu) --- */
+.footer-replica {
+    background-color: #202124; /* Màu nền xám đen chuẩn giao diện tối */
+    color: #9aa0a6; /* Màu chữ xám nhạt */
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1100px; /* Độ rộng vừa phải để nội dung không bị tràn quá xa */
+    margin: 0 auto;
+}
+
+/* 1. Logo Style */
+.footer-brand {
+    font-size: 28px;
+    font-weight: 900; /* Chữ siêu đậm */
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif; /* Font cứng cáp */
+    letter-spacing: -0.5px;
+}
+
+.brand-blue {
+    color: #00aaff; /* Màu xanh dương sáng */
+}
+
+.brand-orange {
+    color: #ff6600; /* Màu cam đậm */
+}
+
+/* Đường gạch ngang mờ */
+.footer-divider {
+    height: 1px;
+    background-color: #3c4043; /* Màu xám của đường kẻ */
+    margin-bottom: 20px;
+    width: 150px; /* Chỉ gạch một đoạn ngắn dưới logo giống ảnh */
+}
+
+/* 2. Button Style */
+.domain-buttons {
+    margin-bottom: 15px;
+}
+
+.btn-pill {
+    display: inline-block;
+    background-color: #3c4043; /* Nền nút xám */
+    color: #e8eaed; /* Chữ trắng đục */
+    padding: 8px 16px;
+    border-radius: 4px; /* Bo góc */
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-pill:hover {
+    background-color: #5f6368;
+    color: #fff;
+}
+
+/* 3. Contact Info */
+.contact-info {
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #9aa0a6;
+}
+
+.contact-info .highlight {
+    color: #dadce0; /* Sáng hơn một chút */
+}
+
+/* 4. Link Block (Mô phỏng đống link ở dưới cùng) */
+.seo-links {
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #70757a; /* Màu chữ tối hơn để chìm xuống nền */
+}
+
+.seo-links a {
+    color: #9aa0a6;
+    text-decoration: none;
+    margin: 0 2px;
+}
+
+.seo-links a:hover {
+    color: #8ab4f8; /* Hover màu xanh nhẹ */
+    text-decoration: underline;
+}
+
+/* 5. Copyright */
+.copyright {
+    font-size: 12px;
+    color: #5f6368; /* Màu tối nhất */
+}
